@@ -7,17 +7,18 @@ nav {
 		border: none;
 		background: gray;
 		padding: 15px 40px;
-		font: bold 1rem/1 'arial';
+		font: bold 0.9rem/1 'arial';
 		color: #fff;
 		cursor: pointer;
 	}
 }
 
 aside {
-	width: 600px;
+	width: 500px;
 	padding: 50px;
 	background: linear-gradient(45deg, violet, hotpink);
 	margin: 100px;
+	display: none;
 
 	.con {
 		min-height: 100px;
