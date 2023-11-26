@@ -3,8 +3,16 @@ const popup = document.querySelector('aside');
 const ck = popup.querySelector('#ck');
 const close = popup.querySelector('button');
 
+document.cookie.indexOf('today=done') < 0 ? (popup.style.display = 'block') : (popup.style.display = 'none');
+// -1 을 반환 : 쿠키가 없는걸 판단
+
 // 쿠키 확인
 view.addEventListener('click', () => console.log(document.cookie));
+
+del.addEventListener('click', () => {
+	setCookie('today', 'done', 0);
+	alert('쿠키 삭제');
+});
 
 // 팝업 열기
 open.addEventListener('click', () => {
@@ -22,5 +30,5 @@ function setCookie(name, value, expires) {
 	let today = new Date();
 	let duedate = today.getDate() + expires;
 	today.setDate(duedate);
-	document.cookie = `${name}=${value}; path=/; expires=${today.toString()}`;
+	document.cookie = `${name}=${value}; path=/; expires=${today.toUTCString()}`;
 }
