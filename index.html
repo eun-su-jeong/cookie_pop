@@ -6,13 +6,20 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Document</title>
   <link rel='stylesheet' href='css/style.css'>
-  <script defer src='js/main.js'></script>
-  <script src='js/myPop.js'></script>
+  <!-- <script defer src='js/main.js'></script> -->
+  <script src="js/myPop.js"></script>
 </head>
 
 <body>
+  <button>Open Pop</button>
   <script>
-    new MyPop({ wid: 500, bg: 'pink', enableCookie: true })
+    const instance = new MyPop()
+
+    const btn = document.querySelector('button');
+
+    btn.addEventListener('click', () => {
+      instance.createPop();
+    })
   </script>
 </body>
 
