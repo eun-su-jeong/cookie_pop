@@ -21,14 +21,15 @@ open.addEventListener('click', () => {
 
 // 팝업 닫기
 close.addEventListener('click', () => {
-	if (ck.checked) setCookie('today', 'done', 1);
+	if (ck.checked) setCookie('today', 'done', 10);
 	popup.style.display = 'none';
 });
 
 //쿠키생성 함수
 function setCookie(name, value, expires) {
-	let today = new Date();
-	let duedate = today.getDate() + expires;
-	today.setDate(duedate);
-	document.cookie = `${name}=${value}; path=/; expires=${today.toUTCString()}`;
+	let now = new Date();
+	// 현재 밀리세컨드 시간값에 1시간(1000 * 60 * 60) * expires
+	let duedate = now.getTime() + 1000 * 60 * 60 * expires;
+	now.setTime(duedate);
+	document.cookie = `${name}=${value}; path=/; expires=${now.toUTCString()}`;
 }
